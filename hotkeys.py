@@ -1,4 +1,5 @@
 import keyboard
+import time
 
 def execPatch():
     keyboard.send('`')
@@ -19,6 +20,26 @@ def execPatch():
     keyboard.send('enter')
     keyboard.send('`')
 
+def colorblindFix():
+    keyboard.send('escape')
+    time.sleep(.02)
+    keyboard.send('down'); keyboard.send('down')
+    keyboard.send('enter')
+    time.sleep(.035)
+    keyboard.send('down'); keyboard.send('down')
+    keyboard.send('enter')
+    time.sleep(.02)
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('down')
+    keyboard.send('right'); keyboard.send('right')
+    time.sleep(.05)
+    keyboard.send('escape'); keyboard.send('escape'); keyboard.send('escape')
+
 keyboard.add_hotkey("F5", lambda: execPatch(), suppress=True)
+keyboard.add_hotkey("F6", lambda: colorblindFix(), suppress=True)
 
 keyboard.wait()
