@@ -47,7 +47,7 @@ def reload():
     time.sleep(.05)
     keyboard.send('up')
     keyboard.send('enter')
-    time.sleep(3)
+    time.sleep(2)
     keyboard.send('enter')
     time.sleep(.05)
     keyboard.send('enter')
@@ -64,10 +64,3 @@ def readOnlyReload():
     time.sleep(1.8)
     keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
 '''
-
-keyboard.add_hotkey("F5", lambda: keyboard.call_later(execPatch), suppress=True)
-keyboard.add_hotkey("F6", lambda: keyboard.call_later(colorblindFix), suppress=True)
-keyboard.add_hotkey("F7", lambda: keyboard.call_later(reload), suppress=True)
-#keyboard.add_hotkey("F8", lambda: keyboard.call_later(readOnlyReload), suppress=True)
-
-keyboard.wait('end')
