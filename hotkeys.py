@@ -39,7 +39,35 @@ def colorblindFix():
     time.sleep(.05)
     keyboard.send('escape'); keyboard.send('escape'); keyboard.send('escape')
 
-keyboard.add_hotkey("F5", lambda: execPatch(), suppress=True)
-keyboard.add_hotkey("F6", lambda: colorblindFix(), suppress=True)
+def reload():
+    keyboard.send('escape')
+    time.sleep(.02)
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('enter')
+    time.sleep(.05)
+    keyboard.send('up')
+    keyboard.send('enter')
+    time.sleep(3)
+    keyboard.send('enter')
+    time.sleep(.05)
+    keyboard.send('enter')
 
-keyboard.wait()
+'''
+def readOnlyReload():
+    keyboard.send('escape')
+    time.sleep(.02)
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+    keyboard.send('enter')
+    time.sleep(.05)
+    keyboard.send('up')
+    keyboard.send('enter')
+    time.sleep(1.8)
+    keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
+'''
+
+keyboard.add_hotkey("F5", lambda: keyboard.call_later(execPatch), suppress=True)
+keyboard.add_hotkey("F6", lambda: keyboard.call_later(colorblindFix), suppress=True)
+keyboard.add_hotkey("F7", lambda: keyboard.call_later(reload), suppress=True)
+#keyboard.add_hotkey("F8", lambda: keyboard.call_later(readOnlyReload), suppress=True)
+
+keyboard.wait('end')
