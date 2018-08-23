@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'untitled.ui'
-#
-# Created by: PyQt5 UI code generator 5.11.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import hotkeys
 
@@ -63,13 +55,13 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
+        self.setConnections(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Borderlands Helper"))
         self.pushButton.setText(_translate("MainWindow", "Exec Patch [F5]"))
-        self.pushButton.clicked.connect(hotkeys.execPatch)
         self.pushButton_2.setText(_translate("MainWindow", "Fix Colorblind [F6]"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#380af0;\">Revz</span></p></body></html>"))
         self.groupBox.setTitle(_translate("MainWindow", "Reload"))
@@ -81,3 +73,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.actionAbout.setText(_translate("MainWindow", "About"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
 
+    def setConnections(self, MainWindow):
+        self.pushButton.clicked.connect(hotkeys.execPatch)
+        self.actionExit.triggered.connect(MainWindow.close)
+        self.actionAbout.triggered.connect(MainWindow.aboutAction)
