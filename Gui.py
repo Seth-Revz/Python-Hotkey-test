@@ -4,7 +4,7 @@ import hotkeys
 class Ui_MainWindow(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(300, 125)
+        MainWindow.setFixedSize(300, 125)
         MainWindow.setWindowIcon(QtGui.QIcon("resources\BL2Revz.ico"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
