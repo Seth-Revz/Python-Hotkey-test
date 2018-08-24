@@ -68,7 +68,7 @@ def reload():
     else:
         MainWindow.errorMsg("open")
 
-'''
+
 def readOnlyReload():
     handle = win32gui.FindWindow(0, "Borderlands 2 (32-bit, DX9)")
     if (handle):
@@ -83,7 +83,7 @@ def readOnlyReload():
         keyboard.send('down'); keyboard.send('down'); keyboard.send('down'); keyboard.send('down')
     else:
         MainWindow.errorMsg("open")
-'''
+
 
 ''' Used for testing
 def window_enum_handler(hwnd, resultList):

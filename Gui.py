@@ -74,6 +74,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.actionExit.setText(_translate("MainWindow", "Exit"))
 
     def setConnections(self, MainWindow):
-        self.pushButton.clicked.connect(hotkeys.execPatch)
         self.actionExit.triggered.connect(MainWindow.close)
         self.actionAbout.triggered.connect(MainWindow.aboutAction)
+        self.pushButton.clicked.connect(hotkeys.execPatch)
+        self.pushButton_2.clicked.connect(hotkeys.colorblindFix)
+        self.pushButton_3.clicked.connect(lambda: hotkeys.reload() if self.radioButton.isChecked() else hotkeys.readOnlyReload())
+    
